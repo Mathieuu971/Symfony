@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {% if age < 18 %}
+        <p>Vous etes mineur</p>
+    {% elseif age < 62 %}
+        <p>Vous etes majeur</p>
+    {% else %}
+        <p>Vous etes retraité</p>    
+{% endif %}
+<p>Dans un ficher twig, on peut utiliser la balise IF pour afficher de l'HTML selon une condition</p>
+    <p>Si on veut tester plusieur conditions, pn peut utiliser <code>elseif</code>. Pour finir, on peut utiliser <code>else</code></p>
+    <p>NB : il n'y a pas de balise switch</p>
+    <hr>
+    <p>On peut utiliser tous les opérateurs de comparaison de php
+    <code><, >, <=, >=, ==, </code>, sauf le <code>===</code></p>
+        <p>Pour les opérateurs logiques, on utilise : 
+        <code>AND, OR, NOT</code> au lieu de <code>&&, ||, !</code></p>
+        <p>Les <i>tests</i>permettent de tester certaines conditions sur des expressions. Par exemple, si la variable toto existe...</p>
+        <p><code>if toto is defined</code></p>
+        {% if age same as 18 %}
+            <p>Vous etes tout juste majeur !!!</p>
+        {% endif %}
+{% endblock %}

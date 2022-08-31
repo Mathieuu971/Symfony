@@ -65,4 +65,30 @@ class TestController extends AbstractController
             "b" => $b,
         ]);
     }
+    #[Route('/test/tableau', name: 'app_test_tableau')]
+    public function tableau()
+    {
+        $array = [5, 10, "bonjour", "je m'appelle", true, 445, 789];
+        return $this->render("test/tableau.html.twig", ["tableau" => $array]);
+    }
+    #[Route('/test/tableau-associatif')]
+        public function tableauAssociatif()
+        {
+            $p = ["nom" => "Cérien", "prenom" => "jean"];
+            return $this->render("test/assoc.html.twig", ["var" => $p]);
+        }
+        #[Route('/test/objet')]
+        public function objet()
+        {
+            $objet = new \stdClass;
+            $objet->nom = "Odin";
+            $objet->prenom = "Anne";
+            return $this->render("test/assoc.html.twig");
+            
+        }
+        #[Route('/test/condition/{age}')]
+        public function condition($age)
+        {
+            return $this->render("test/condition.html.twig", ["age" => $age]);
+        }
 }
