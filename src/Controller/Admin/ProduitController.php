@@ -76,6 +76,12 @@ class ProduitController extends AbstractController
                     $nomFichier .= "_" . uniqid();
                     $nomFichier .= "_" . $fichier->guessExtension();
                     $fichier->move("images", $nomFichier);
+                    if($produit->getPhoto()){
+                        $fichier = $this->getParameter("image_directory") . $produit->getPhoto();
+                        if( file_exists($fichier)){
+                            unlink($fichier);
+                        }
+                    }
                     $produit->setPhoto($nomFichier);
                 }
 

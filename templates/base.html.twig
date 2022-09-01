@@ -25,7 +25,10 @@
         </head>
         <body>
             <div class="container">
-            <h1>Bienvenue a la bibliotheque</h1>
+            {% block nav %}
+                {{  include("nav.html.twig")  }}
+            {% endblock %}
+            {# <h1> {% block h1 %} Bienvenue a la bibliotheque {% endblock %}</h1> #}
             {% block body %}
                 <p>Ceci est de la balise <code>Block body</code> du fichier <mark>base.html.twig</mark> </p>
                     <p>Le nombre est {{ nombre }}</p>
